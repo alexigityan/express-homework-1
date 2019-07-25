@@ -1,5 +1,5 @@
 const express = require('express');
-const validateUser = require('./util/valdiateUser');
+const validateUser = require('../util/valdiateUser');
 
 const api = express.Router();
 

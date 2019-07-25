@@ -1,6 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const validateUser = require('./util/valdiateUser');
+const validateUser = require('../util/valdiateUser');
 const api = require('./api');
 
 const app = express();
