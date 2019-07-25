@@ -14,7 +14,9 @@ app.use(cookieParser());
 app.use('/', (req, res, next) => {
     if (!req.cookies.time) {
         const timeString = new Date().toTimeString().split(' ')[0];
-        res.cookie('time', timeString);
+        res.cookie('time', timeString, {
+            maxAge: 5*60*1000 // make cookie expire in 5 minutes
+        });
     } 
     next();
 });
