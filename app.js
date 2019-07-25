@@ -1,5 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const api = require('./api');
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use('/', (req, res, next) => {
     } 
     next();
 });
+app.use('/api', api);
 
 app.get('/', (req, res) => {
     res.render('index', { time: req.cookies.time });
