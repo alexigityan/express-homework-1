@@ -32,7 +32,7 @@ app.route('/form')
     })
     .post(validateUser('form'), (req, res) => {
         if(res.locals.userIsValid) {
-            app.locals.users.push(req.body);
+            app.locals.users.push(res.locals.newUser);
             res.redirect('/results');
         } else {
             res.render('form', { error: 'Something went wrong, user not saved' });

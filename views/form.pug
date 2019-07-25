@@ -1,24 +1,27 @@
-form(method="post", action="/form")
-    h1 Create a user
-    label(for="username") Username: 
-    input(type="text", name="username", id="username", required)
-    br 
-    br
-    label(for="password") Password: 
-    input(type="password", name="password", id="password", required)
-    p Choose gender
-    label(for="boy") Boy: 
-    input(type="radio", name="gender", value="boy", id="boy", required)
-    label(for="girl") Girl: 
-    input(type="radio", name="gender", value="girl", id="girl", required)
-    p Confirmation
-    label(for="agree") I confirm all this
-    input(type="checkbox", name="agree", id="agree", required)
-    br
-    br
-    input(type="submit", value="Save")
+extends layout.pug
 
-if error
-    p(style="color:red")= error
+block content
+    form(method="post", action="/form")
+        h1 Create a user
+        label(for="username") Username: 
+        input(type="text", name="username", id="username", value=(newUser ? newUser.username : ""), required)
+        br 
+        br
+        label(for="password") Password: 
+        input(type="password", name="password", id="password", required)
+        p Choose gender
+        label(for="boy") Boy: 
+        input(type="radio", name="gender", value="boy", id="boy", checked=(newUser && newUser.gender === 'boy'), required)
+        label(for="girl") Girl: 
+        input(type="radio", name="gender", value="girl", id="girl", checked=(newUser && newUser.gender === 'girl'), required)
+        p Confirmation
+        label(for="agree") I confirm all this
+        input(type="checkbox", name="agree", id="agree", required)
+        br
+        br
+        input(type="submit", value="Save")
 
-a(href="/results") See all users
+    if error
+        p(style="color:red")= error
+
+    a(href="/results") See all users

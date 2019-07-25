@@ -1,12 +1,11 @@
 module.exports = function(target) {
     return function (req, res, next) {
-        const newUser = req.body;
+        const newUser = res.locals.newUser = req.body;
         const { username, password, gender, agree } = newUser;
         
         const agreeValue = (target === 'form') ? 'on' : true;
         /* in case of parsing html form, checkbox value is "on"
            in case of JSON payload it should be Boolean true */
-
         res.locals.userIsValid = (
             Object.keys(newUser).length === 4 &&
             typeof username === 'string'      &&

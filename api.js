@@ -12,7 +12,7 @@ api.get('/time', (req, res) => {
 
 api.post('/users', validateUser(), (req, res) => {
     if (res.locals.userIsValid) {
-        app.locals.users.push(newUser);
+        req.app.locals.users.push(res.locals.newUser);
         res.sendStatus(201);
     } else {
         res.sendStatus(400);
@@ -20,7 +20,7 @@ api.post('/users', validateUser(), (req, res) => {
 });
 
 api.get('/users', (req, res) => {
-    res.json(app.locals.users);
+    res.json(req.app.locals.users);
 });
 
 

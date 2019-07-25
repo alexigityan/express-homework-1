@@ -1,3 +1,7 @@
-h1 hello world
-if time
-    h3= `I have a cookie since ${time} o'clock`
+extends layout.pug
+
+block content
+    h1 hello world
+
+    if time
+        h3= `I have a cookie since ${time} o'clock`
