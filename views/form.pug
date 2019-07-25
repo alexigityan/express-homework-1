@@ -1,0 +1,24 @@
+form(method="post", action="/form")
+    h1 Create a user
+    label(for="username") Username: 
+    input(type="text", name="username", id="username", required)
+    br 
+    br
+    label(for="password") Password: 
+    input(type="password", name="password", id="password", required)
+    p Choose gender
+    label(for="boy") Boy: 
+    input(type="radio", name="gender", value="boy", id="boy", required)
+    label(for="girl") Girl: 
+    input(type="radio", name="gender", value="girl", id="girl", required)
+    p Confirmation
+    label(for="agree") I confirm all this
+    input(type="checkbox", name="agree", id="agree", required)
+    br
+    br
+    input(type="submit", value="Save")
+
+if error
+    p(style="color:red")= error
+
+a(href="/results") See all users

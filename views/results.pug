@@ -1,0 +1,9 @@
+unless users.length > 0
+    p No users so far
+
+each user in users
+    div(class="user", style="border:1px solid black; margin:1em; padding:1em")
+        p= `Username: ${user.username}`
+        p= `Gender: ${user.gender}`
+
+a(href="/form") Add new user
