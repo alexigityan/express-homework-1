@@ -7,9 +7,20 @@ app.set('view engine', 'pug');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use('/', (req, res, next) => {
+    if (!req.cookies.time) {
+        const timeString = new Date().toTimeString().split(' ')[0];
+        res.cookie('time', timeString);
+    } 
+    next();
+});
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', { time: req.cookies.time });
+});
+
+app.get('/favicon.ico', (req, res) => {
+    res.sendStatus(204);
 });
 
 const port = process.env.PORT || 3000;
