@@ -9,12 +9,12 @@ block content
         br
         label(for="password") Password: 
         input(type="password", name="password", id="password", required)
-        p Choose gender
+        p: strong Choose gender
         label(for="boy") Boy: 
         input(type="radio", name="gender", value="boy", id="boy", checked=(newUser && newUser.gender === 'boy'), required)
         label(for="girl") Girl: 
         input(type="radio", name="gender", value="girl", id="girl", checked=(newUser && newUser.gender === 'girl'), required)
-        p Confirmation
+        p: strong Confirmation
         label(for="agree") I confirm all this
         input(type="checkbox", name="agree", id="agree", required)
         br

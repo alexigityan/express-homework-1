@@ -26,6 +26,15 @@ app.get('/', (req, res) => {
     res.render('index', { time: req.cookies.time });
 });
 
+app.get('/myroute/:param?', (req, res) => {
+    res.render('myroute', {
+        params: Object.entries(req.params),
+        queries: Object.entries(req.query),
+        headers: Object.entries(req.headers),
+        cookies: Object.entries(req.cookies)
+    });
+});
+
 app.route('/form')
     .get((req, res) => {
         res.render('form');

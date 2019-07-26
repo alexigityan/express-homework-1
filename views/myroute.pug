@@ -1,0 +1,27 @@
+extends layout
+
+block content
+
+  h3 Your parameters
+  div: ul
+    each param in params
+      li= `${param[0]}: ${param[1]}`
+
+  h3 Your queries
+  div: ul
+    unless queries.length > 0
+      li No queries present
+    each query in queries
+      li= `${query[0]}: ${query[1]}`
+
+  h3 Your headers
+  div: ul
+    each header in headers
+      li= `${header[0]}: ${header[1]}`
+
+  h3 Your cookies
+  div: ul
+    unless cookies.length > 0
+      li No cookies present
+    each cookie in cookies
+      li= `${cookie[0]}: ${cookie[1]}`
