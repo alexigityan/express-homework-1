@@ -40,7 +40,7 @@ app.route('/form')
         res.render('form');
     })
     .post(validateUser('form'), (req, res) => {
-        if(res.locals.userIsValid) {
+        if(res.locals.isUserValid) {
             app.locals.users.push(res.locals.newUser);
             res.redirect('/results');
         } else {

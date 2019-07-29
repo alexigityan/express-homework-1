@@ -11,7 +11,7 @@ api.get('/time', (req, res) => {
 });
 
 api.post('/users', validateUser(), (req, res) => {
-    if (res.locals.userIsValid) {
+    if (res.locals.isUserValid) {
         req.app.locals.users.push(res.locals.newUser);
         res.sendStatus(201);
     } else {
